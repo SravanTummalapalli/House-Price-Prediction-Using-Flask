@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            margin: 20px auto; /* Center horizontally with some top margin */
+            max-width: 500px; /* Set a maximum width to keep it centered */
+        }
+ 
+        html, body {
+            background: #6e9eeb; /* Simple background color */
+        }
+ 
+        .login {
+            min-height: 100vh; /* Ensure the content spans the full viewport height */
+        }
+ 
+        .login h1 {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+ 
+        label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+ 
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 13px;
+            color: #fff;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+            transition: box-shadow .5s ease;
+        }
+ 
+        input:focus {
+            box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+ 
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4a77d4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+ 
+        .btn:hover {
+            background-color: #3762bc;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h1>House Price Prediction</h1>
+        <form action="/predict" method="post">
+ 
+            <label for="area">Area:</label>
+            <input type="text" id="area" name="area"><br>
+ 
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="text" id="bedrooms" name="bedrooms"><br>
+ 
+            <label for="bathrooms">Bathrooms:</label>
+            <input type="text" id="bathrooms" name="bathrooms"><br>
+ 
+            <label for="stories">Stories:</label>
+            <input type="text" id="stories" name="stories"><br>
+ 
+            <label for="parking">Parking:</label>
+            <input type="text" id="parking" name="parking"><br>
+ 
+            <label for="mainroad_yes">Main Road:</label>
+            <input type="text" id="mainroad_yes" name="mainroad_yes"><br>
+ 
+            <label for="guestroom_yes">Guest Room:</label>
+            <input type="text" id="guestroom_yes" name="guestroom_yes"><br>
+ 
+            <label for="basement_yes">Basement:</label>
+            <input type="text" id="basement_yes" name="basement_yes"><br>
+ 
+            <label for="hotwaterheating_yes">Hot Water Heating:</label>
+            <input type="text" id="hotwaterheating_yes" name="hotwaterheating_yes"><br>
+ 
+            <label for="airconditioning_yes">Air Conditioning:</label>
+            <input type="text" id="airconditioning_yes" name="airconditioning_yes"><br>
+ 
+            <label for="prefarea_yes">Preferred Area:</label>
+            <input type="text" id="prefarea_yes" name="prefarea_yes"><br>
+ 
+            <label for="furnishingstatus">Furnishing Status:</label><br>
+            <select name="furnishingstatus" id="furnishingstatus">
+                <option value="semi-furnished">Semi-Furnished</option>
+                <option value="unfurnished">Unfurnished</option>
+                <option value="furnished">Furnished</option>
+            </select><br><br>
+ 
+            <button type="submit" class="btn">Predict</button>
+        </form>
+        <h2>{{ prediction_text }}</h2>
+    </div>
+</body>
+</html>
